@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const cloudinary = require("cloudinary").v2;
-const books = require("../Tales.json");
+// const books = require("../Tales.json");
 const Book = require("../models/Book");
 // app.use(express.json())
 
@@ -85,7 +85,7 @@ router.post("/books/add", async(req,res) =>{
         // ]
 
         });
-        console.log(newBook);
+        // console.log(newBook);
         await newBook.save();
         return res.status(200).json(newBook);
     }catch(error){
@@ -96,11 +96,11 @@ router.post("/books/add", async(req,res) =>{
 router.get("/books", async (req,res)=>{
 
     try{
-        // if (req.query.title){
-        //     console.log(req.query.title)
-        //     filters.title = new RegExp(req.query.title, "i");
-        // }
-        const tale = await Book.find();
+        const filter = {};
+        if (req.query.title){
+            filter.title = new RegExp(req.query.title, "i");
+        }
+        const tale = await Book.find(filter);
         return res.status(200).json(tale);
     }catch(error){
 
