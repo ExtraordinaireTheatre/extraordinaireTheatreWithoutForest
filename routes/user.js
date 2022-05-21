@@ -32,7 +32,7 @@ router.post("/user/signup", async(req,res) =>{
             await newAccount.save();
             const ret = 
                 {_id: newAccount._id,
-                    // token: newAccount.token,
+                    token: newAccount.token,
                     account:{
                         username: newAccount.account.username,
                     statut: "Sign up successful"
@@ -54,7 +54,7 @@ router.post("/user/login/", async(req,res) => {
             if (decrypt === goodUser.hash){
                 const ret = 
                 {_id: goodUser._id,
-                    // token: goodUser.token,
+                    token: goodUser.token,
                     account:{
                         username: goodUser.account.username,
                     state: "Connect with success"
