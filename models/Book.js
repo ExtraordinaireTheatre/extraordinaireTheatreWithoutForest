@@ -7,10 +7,10 @@ const Book = mongoose.model("Book", {
   ageCategory: String,
   title: String,
   author: String,
-  image: { type: mongoose.Schema.Types.Mixed, default: {} },
+  image: String,
   description : String,
   duration: String,
-  video :{ type: mongoose.Schema.Types.Mixed, default: {} },
+  video : String,
   timeCode :[
       {
           entry:String,

@@ -22,15 +22,15 @@ cloudinary.config({
 
 router.post("/books/add", async(req,res) =>{
     try{
-        const {ageCategory,title,author,description, duration, video, timeCode} = req.fields;
+        const {ageCategory,title,author,description, duration,image, video, timeCode} = req.fields;
         const newBook = new Book ({
         ageCategory: ageCategory,
         title: title,
         author: author,
-        image: req.files.image,
+        image: image,
         description : description,
         duration: duration,
-        video :req.files.video,
+        video : video,
         // timeCode :[
         //     {
         //         entry: String,
