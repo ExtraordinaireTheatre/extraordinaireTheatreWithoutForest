@@ -23,6 +23,7 @@ mongoose.connect(process.env.MONGODB_URI, {
     useUnifiedTopology: true
 });
 
+
 app.get("/", (req,res) => {res.status(200).json("Bienvenue sur l'api de l'extraordinaire plus grand petit theatre d'ombres du monde");});
 
 app.all("*", (req,res) => {res.status(404).json("Page not found");});
